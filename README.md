@@ -7,7 +7,7 @@ The independent work - Vagrant and Zabbix Agent2 7.0 LTS - Auto-registration to
 
 - Vytvořil složku Zabbix a do ní vložil funkční Ubuntu server spolu se skriptem zabbix.sh, který nainstaluje a nastaví zabbix
 - Pro přihlášení do ssh přes klíč do složky Zabbix přidejte soubor klic.pub
-- Soubor [a relative link](zbx_export_hosts.yaml) je export mého hosta
-- Screenshot se nachází ve složce [a relative link](Images/zabbix-screenshot.png)
+- Soubor [zbx_export_hosts.yaml](zbx_export_hosts.yaml) je export mého hosta
+- Screenshot se nachází ve složce [Images/zabbix-screenshot.png](Images/zabbix-screenshot.png)
 
 ![Screenshot](./Images/zabbix-screenshot.png)
