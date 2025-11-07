@@ -1,8 +1,30 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# Instalace balicku net-tools
+sudo apt-get install -y net-tools
+
+# Stažení balíčku pro instalaci zabbix repo
+sudo wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu24.04_all.deb
+
+# Instalace meta balíčku
+sudo dpkg -i zabbix-release_latest_7.0+ubuntu24.04_all.deb
+
+# Aktualizace repository
+sudo apt-get update
+
+# Instalace meta balíčku
+sudo apt-get install -y zabbix-agent2 zabbix-agent2-plugin-*
+
+# Povoleni sluzby zabbix-agent2
+sudo systemctl enable zabbix-agent2
+
+# Restart sluzby zabbix-agent2
+sudo systemctl restart zabbix-agent2
+
 
 # Unikatni hostname ubuntu (Lepší než hostname školní stanice)
-UNIQUE_HOSTNAME="ubuntu-$(uuidgen)"
-SHORT_HOSTNAME=$(echo $UNIQUE_HOSTNAME | cut -d'-' -f1,2)
+SHORT_HOSTNAME="ubuntu-skerika"
+
 
 # # Konfigurace zabbix_agent2.conf
 sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf-orig
@@ -15,5 +37,3 @@ sudo diff -u /etc/zabbix/zabbix_agent2.conf-orig /etc/zabbix/zabbix_agent2.conf
 
 # Restart sluzby zabbix-agent2
 sudo systemctl restart zabbix-agent2
-
-# EOF
